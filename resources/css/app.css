@@ -9,3 +9,68 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Custom Styles */
+body {
+  @apply bg-gray-100 text-gray-700;
+  font-family: "Rubik", sans-serif;
+}
+
+h1 {
+  @apply text-2xl font-bold text-red-500;
+}
+
+h2 {
+  @apply text-xl font-bold my-4;
+}
+
+h3 {
+  @apply text-lg font-bold my-4;
+}
+
+ul {
+  @apply my-10;
+}
+
+p {
+  @apply my-2;
+}
+
+header {
+  @apply bg-white shadow;
+}
+
+nav {
+  @apply flex items-center gap-5 max-w-5xl px-12 py-4 mx-auto;
+}
+
+nav h1 {
+  @apply mr-auto;
+}
+
+/* Forms */
+form {
+  @apply max-w-screen-sm bg-white p-6 rounded shadow;
+}
+
+input,
+select,
+textarea {
+  @apply block w-full mt-2 mb-4 p-2 border border-gray-300 rounded;
+}
+/* Custom classes */
+.container {
+  @apply max-w-5xl mx-auto px-12 py-8;
+}
+
+.card {
+  @apply bg-white rounded border border-gray-200 px-3 py-3 my-2 flex justify-between items-center shadow-sm;
+}
+
+.highlight {
+  @apply border-l-4 border-red-500;
+}
+
+.btn {
+  @apply inline-block rounded px-3 py-2 bg-gray-200 hover:bg-red-500 hover:text-white transition-colors duration-300;
+}

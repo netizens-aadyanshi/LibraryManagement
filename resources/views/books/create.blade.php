@@ -23,7 +23,7 @@
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-
+                    
                     <!-- Author -->
                     <div class="mb-6">
                         <label for="author_id" class="block font-semibold text-gray-700">Author</label>

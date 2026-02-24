@@ -1,76 +1,74 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-}
+/* Custom Global Styles */
 
-/* Custom Styles */
 body {
-  @apply bg-gray-100 text-gray-700;
-  font-family: "Rubik", sans-serif;
+    @apply bg-gray-100 text-gray-700;
+    font-family: "Rubik", sans-serif;
 }
 
 h1 {
-  @apply text-2xl font-bold text-red-500;
+    @apply text-2xl font-bold text-indigo-600;
 }
 
 h2 {
-  @apply text-xl font-bold my-4;
+    @apply text-xl font-semibold my-4 text-gray-800;
 }
 
 h3 {
-  @apply text-lg font-bold my-4;
+    @apply text-lg font-semibold my-3;
 }
 
-ul {
-  @apply my-10;
+/* Container */
+.container-custom {
+    @apply max-w-7xl mx-auto px-6 py-8;
 }
 
-p {
-  @apply my-2;
+/* Card */
+.card {
+    @apply bg-white shadow-sm rounded-lg p-6 mb-4 border border-gray-200;
 }
 
-header {
-  @apply bg-white shadow;
+/* Table Styling */
+.table-custom {
+    @apply min-w-full border border-gray-200 rounded-lg overflow-hidden;
 }
 
-nav {
-  @apply flex items-center gap-5 max-w-5xl px-12 py-4 mx-auto;
+.table-custom thead {
+    @apply bg-gray-100;
 }
 
-nav h1 {
-  @apply mr-auto;
+.table-custom th {
+    @apply px-4 py-2 text-left text-sm font-semibold text-gray-700;
 }
 
-/* Forms */
-form {
-  @apply max-w-screen-sm bg-white p-6 rounded shadow;
+.table-custom td {
+    @apply px-4 py-2 text-sm text-gray-600;
 }
 
+.table-custom tr {
+    @apply border-t;
+}
+
+/* Buttons */
+.btn-primary {
+    @apply px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition;
+}
+
+.btn-warning {
+    @apply px-3 py-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition;
+}
+
+.btn-danger {
+    @apply px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 transition;
+}
+
+/* Form Elements */
 input,
 select,
 textarea {
-  @apply block w-full mt-2 mb-4 p-2 border border-gray-300 rounded;
-}
-/* Custom classes */
-.container {
-  @apply max-w-5xl mx-auto px-12 py-8;
-}
-
-.card {
-  @apply bg-white rounded border border-gray-200 px-3 py-3 my-2 flex justify-between items-center shadow-sm;
-}
-
-.highlight {
-  @apply border-l-4 border-red-500;
-}
-
-.btn {
-  @apply inline-block rounded px-3 py-2 bg-gray-200 hover:bg-red-500 hover:text-white transition-colors duration-300;
+    @apply w-full mt-2 mb-4 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none;
 }

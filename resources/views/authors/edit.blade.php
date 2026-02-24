@@ -1,33 +1,69 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Edit Author
+        </h2>
+    </x-slot>
 
-@section('content')
-<div class="container">
-    <h1 class="text-2xl font-bold text-red-500 mb-6">Edit Author</h1>
+    <div class="py-10">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
 
-    <form action="{{ route('authors.update', $author) }}" method="POST">
-        @csrf
-        @method('PUT')
+            <div class="bg-white shadow-md rounded-lg p-6">
 
-        <div class="mb-4">
-            <label for="name" class="block font-semibold">Name</label>
-            <input type="text" name="name" id="name" class="block w-full mt-2 p-2 border border-gray-300 rounded" value="{{ old('name', $author->name) }}">
-            @error('name')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
+                <form action="{{ route('authors.update', $author) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+
+                    <!-- Name -->
+                    <div class="mb-6">
+                        <label for="name" class="block font-semibold text-gray-700">
+                            Name
+                        </label>
+
+                        <input type="text"
+                               name="name"
+                               id="name"
+                               value="{{ old('name', $author->name) }}"
+                               class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+
+                        @error('name')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Bio -->
+                    <div class="mb-6">
+                        <label for="bio" class="block font-semibold text-gray-700">
+                            Bio
+                        </label>
+
+                        <textarea name="bio"
+                                  id="bio"
+                                  rows="4"
+                                  class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none">{{ old('bio', $author->bio) }}</textarea>
+
+                        @error('bio')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="flex gap-3">
+                        <button type="submit"
+                                class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">
+                            Update
+                        </button>
+
+                        <a href="{{ route('authors.index') }}"
+                           class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 transition">
+                            Cancel
+                        </a>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
-
-        <div class="mb-4">
-            <label for="bio" class="block font-semibold">Bio</label>
-            <textarea name="bio" id="bio" class="block w-full mt-2 p-2 border border-gray-300 rounded">{{ old('bio', $author->bio) }}</textarea>
-            @error('bio')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-
-        <div class="flex gap-2">
-            <button type="submit" class="btn">Update</button>
-            <a href="{{ route('authors.index') }}" class="btn bg-gray-300 hover:bg-gray-400">Cancel</a>
-        </div>
-    </form>
-</div>
-@endsection
+    </div>
+</x-app-layout>
